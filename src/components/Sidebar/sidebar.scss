@@ -1,16 +1,20 @@
 // Реализована только версия для декстопа. В тз не было информации про мобильную версию
 
+
+// У html, body и других элементов, как правило, сбрасывают стили, которые браузер устанавливает браузер (reset.css или normalize.css). В разных браузерах они отличаются и надеяться на них не лучшая идея
+
 .sidebar {
     width: 3%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100vh; // обычно, добавляется скролл вертикальный скролл, нужно этот момент учитывать
+    overflow: hidden; 
     padding: 5px;
     background-color: black;
-    transition: 0.3s;
+    transition: 0.3s; // в таком случае будут анимированы все изменения, лучше явно указать через transition-property отдельной строчкой
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
+    // лучше ставить стили через классы, для этого нужно в Sidebar.jsx их дописать
     span{
         overflow: hidden;
         transition: 0.5s;
@@ -22,12 +26,13 @@
         transition: 0.3s;
     }
 
+    // :first-child
     >div:nth-child(1){
         display: flex;
         align-items: center;
         flex-direction: column;
         margin-bottom: 20px;
-        gap: 10px;
+        gap: 10px; // лучше margin-right от иконки в данном случае
         height: 55px;
 
         >img{
@@ -55,7 +60,7 @@
 
     >div:not(:nth-child(1)){
         width: 100%;
-        flex-direction: column;
+        flex-direction: column; // без "display: flex" не работает ведь
 
         >div{
             height: 35px;
